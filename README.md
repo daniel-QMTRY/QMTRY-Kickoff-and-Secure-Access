@@ -1,4 +1,3 @@
-````
 # QMTRY — Blast Off to Secure Healthcare Analytics Adventure! 🚀🔒
 
 > **Epic 30-Minute Quest: Discover, Scope, and Seal the BAA Deal!** We'll geek out on secure data transfers (**SFTP / S3 / Azure Blob / BigQuery**) and rock demos with **Synthea** synthetic data — **zero PHI drama**! 🎉
@@ -247,4 +246,3 @@ Export everything for your trophy case! 📁
 ## License (Free to Explore) 📄
 
 MIT for this doc repo. Your data? All yours, forever! 🌍
-````
