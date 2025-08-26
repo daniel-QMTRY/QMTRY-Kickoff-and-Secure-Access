@@ -1,14 +1,11 @@
-# QMTRY-Kickoff-and-Secure-Access
-30-min discovery → BAA → secure ingress (SFTP/S3/Azure/BigQuery) with Synthea demo and audit-ready evidence.
-Here’s a polished, copy-ready **README.md** for a GitHub repo that matches your “Kickoff & Secure Access” box. It’s executive-friendly, compliance-forward, and packed with charts & flowcharts that render on GitHub via Mermaid.
+Absolutely—here’s the **complete, fixed README.md** ready to paste into your repo. All Mermaid blocks are GitHub-safe (labels quoted, no `&`, clean punctuation).
 
----
-
-# QMTRY — Kickoff & Secure Access
+````markdown
+# QMTRY — Kickoff and Secure Access
 
 > **30-minute discovery, scope, and BAA.** We agree on a secure transfer (**SFTP / S3 / Azure Blob / BigQuery**) and use **Synthea** synthetic data for demos — **no PHI in examples**.
 
-[🌐 See our onboarding](https://qmtry.ai/compliance/) • Contact: [contracts@qmtry.com](mailto:contracts@qmtry.com)
+[🌐 See our onboarding](https://qmtry.ai/compliance/) • Contact: contracts@qmtry.com
 
 ---
 
@@ -20,24 +17,27 @@ Healthcare leaders want a **safe, fast path** to evaluate QMTRY. This repo docum
 
 ## Table of Contents
 
-* [Executive Summary](#executive-summary)
-* [Onboarding Flow (30-min → demo)](#onboarding-flow-30-min--demo)
-* [Security & Compliance Controls](#security--compliance-controls)
-* [Architecture & Data Flow](#architecture--data-flow)
-* [Timeline (Gantt)](#timeline-gantt)
-* [Effort Breakdown (Pie)](#effort-breakdown-pie)
-* [What to Bring to the Call](#what-to-bring-to-the-call)
-* [Secure Transfer Recipes](#secure-transfer-recipes)
-* [Evidence Bundle (What you receive)](#evidence-bundle-what-you-receive)
-* [Appendix: Sample Data Contract](#appendix-sample-data-contract)
+- [Executive Summary](#executive-summary)  
+- [Onboarding Flow (30-min → demo)](#onboarding-flow-30-min--demo)  
+- [Security and Compliance Controls](#security-and-compliance-controls)  
+- [Architecture and Data Flow](#architecture-and-data-flow)  
+- [Timeline (Gantt)](#timeline-gantt)  
+- [Effort Breakdown (Pie)](#effort-breakdown-pie)  
+- [What to Bring to the Call](#what-to-bring-to-the-call)  
+- [Secure Transfer Recipes](#secure-transfer-recipes)  
+- [Evidence Bundle (What you receive)](#evidence-bundle-what-you-receive)  
+- [Appendix: Sample Data Contract](#appendix-sample-data-contract)  
+- [Repo Structure (suggested)](#repo-structure-suggested)  
+- [FAQ](#faq)  
+- [License](#license)
 
 ---
 
 ## Executive Summary
 
-* **Goal:** in one short session, align on scope and security, execute a **BAA**, and pick your **secure ingress** option.
-* **Demo Safety:** we use **Synthea** data end-to-end for examples; **no PHI** enters our systems during evaluation.
-* **Outcome:** a reproducible, evidence-backed demo and a ready path to production if you choose to proceed.
+- **Goal:** in one short session, align on scope and security, execute a **BAA**, and pick your **secure ingress** option.  
+- **Demo Safety:** we use **Synthea** data end-to-end for examples; **no PHI** enters our systems during evaluation.  
+- **Outcome:** a reproducible, evidence-backed demo and a ready path to production if you choose to proceed.
 
 ---
 
@@ -45,53 +45,52 @@ Healthcare leaders want a **safe, fast path** to evaluate QMTRY. This repo docum
 
 ```mermaid
 flowchart TD
-    A[Discovery Call (30 min)] --> B[Scope & Success Criteria]
-    B --> C[BAA Execution]
-    C --> D{Choose Secure Ingress}
-    D --> D1[SFTP]
-    D --> D2[S3 Bucket (AWS)]
-    D --> D3[Azure Blob]
-    D --> D4[BigQuery External Table]
-    D1 --> E[Ingress Policy + Keys/Role]
+    A["Discovery Call (30 min)"] --> B["Scope and Success Criteria"]
+    B --> C["BAA Execution"]
+    C --> D{"Choose Secure Ingress"}
+    D --> D1["SFTP"]
+    D --> D2["S3 Bucket (AWS)"]
+    D --> D3["Azure Blob"]
+    D --> D4["BigQuery External Table"]
+    D1 --> E["Ingress Policy + Keys/Role"]
     D2 --> E
     D3 --> E
     D4 --> E
-    E --> F[Synthea Demo Dataset (No PHI)]
-    F --> G[Validation Checks (Schema, Row Counts, Nulls)]
-    G --> H[Demo Notebook & Dashboard]
-    H --> I[Evidence Bundle (audit-ready)]
-```
+    E --> F["Synthea Demo Dataset (No PHI)"]
+    F --> G["Validation Checks (Schema, Row Counts, Nulls)"]
+    G --> H["Demo Notebook and Dashboard"]
+    H --> I["Evidence Bundle (audit-ready)"]
+````
 
 ---
 
-## Security & Compliance Controls
+## Security and Compliance Controls
 
 * **BAA** before any non-public data.
 * **No PHI for demos** — Synthea synthetic data only.
-* **Encryption in transit & at rest** (TLS, server-side encryption / SSE-S3 / SSE-KMS / Azure SSE).
+* **Encryption in transit and at rest** (TLS, server-side encryption / SSE-S3 / SSE-KMS / Azure SSE).
 * **Least-privilege access** (scoped IAM roles, time-boxed credentials).
-* **Data minimization & retention**: demo artifacts kept only as long as necessary.
+* **Data minimization and retention**: demo artifacts kept only as long as necessary.
 * **Audit trail**: logs for ingress, validation, and access.
 
 ---
 
-## Architecture & Data Flow
+## Architecture and Data Flow
 
 ```mermaid
 sequenceDiagram
     participant C as Customer
-    participant IAM as IAM / Secrets
-    participant Ingress as Secure Ingress (SFTP/S3/Azure/BigQuery)
-    participant Stg as Staging (Read-only)
-    participant Val as Validation
-    participant Demo as Demo Apps (Dashboards/Notebooks)
-
-    C->>IAM: Exchange keys / roles (least-privilege)
-    C->>Ingress: Provide dataset location (Synthea only)
-    Ingress->>Stg: Encrypted transfer (TLS + SSE)
-    Stg->>Val: Schema & quality checks (row counts, null %, types)
-    Val->>Demo: Publish demo-safe tables
-    Demo->>C: Executive walk-through + Q&A
+    participant I as "IAM / Secrets"
+    participant IN as "Secure Ingress\n(SFTP | S3 | Azure | BigQuery)"
+    participant S as Staging (Read-only)
+    participant V as Validation
+    participant D as "Demo Apps"
+    C->>I: Exchange keys / roles (least-privilege)
+    C->>IN: Provide dataset location (Synthea only)
+    IN->>S: Encrypted transfer (TLS + server-side encryption)
+    S->>V: Schema and quality checks
+    V->>D: Publish demo-safe tables
+    D->>C: Executive walkthrough + Q and A
 ```
 
 ---
@@ -103,14 +102,14 @@ gantt
     title Kickoff to Demo
     dateFormat  YYYY-MM-DD
     section Meeting
-    Discovery (30 min)        :milestone, m1, 2025-08-26, 1d
+    Discovery_30_min           :milestone, m1, 2025-08-26, 1d
     section Legal
-    BAA Execution             :active, l1, 2025-08-26, 1d
+    BAA_Execution              :active, l1, 2025-08-26, 1d
     section Security
-    Ingress Setup             :s1, after l1, 1d
-    Validation (Synthea)      :s2, after s1, 1d
+    Ingress_Setup              :s1, after l1, 1d
+    Validation_Synthea         :s2, after s1, 1d
     section Demo
-    Executive Demo            :milestone, d1, after s2, 1d
+    Executive_Demo             :milestone, d1, after s2, 1d
 ```
 
 ---
@@ -119,10 +118,10 @@ gantt
 
 ```mermaid
 pie title Effort Allocation (Evaluation Phase)
-  "Discovery & Scope" : 15
-  "Security & Ingress" : 35
-  "Validation" : 25
-  "Demo Prep & Walkthrough" : 25
+    "Discovery and Scope" : 15
+    "Security and Ingress" : 35
+    "Validation" : 25
+    "Demo Prep and Walkthrough" : 25
 ```
 
 ---
@@ -140,7 +139,7 @@ pie title Effort Allocation (Evaluation Phase)
 
 > Pick the path that matches your environment. All examples below assume **synthetic Synthea** data.
 
-### 1) SFTP (recommended for simple pilots)
+### 1) SFTP (simple and reliable)
 
 ```bash
 # Upload (client-side)
@@ -156,10 +155,9 @@ EOF
 # Example: create a bucket and upload (customer side)
 aws s3 mb s3://qmtry-demo-synthea --region us-east-1
 aws s3 sync ./synthea s3://qmtry-demo-synthea/synthea/
-
-# Bucket policy (grant read to QMTRY's external role; sample only)
-# (Replace ACCOUNT_ID/ROLE_ARN with the exact IDs we exchange under BAA.)
 ```
+
+> We exchange exact IAM ARNs and a least-privilege bucket policy as part of the BAA/ingress worksheet.
 
 ### 3) Azure Blob Storage
 
@@ -184,17 +182,15 @@ OPTIONS (
 );
 ```
 
-> **Note:** We’ll align exact IAM policies and ARNs in the BAA/ingress worksheet.
-
 ---
 
 ## Evidence Bundle (What you receive)
 
-* **Ingress checklist** (who/what/when, key custody, TTL).
-* **Validation report** (schema, row counts, null %, type mismatches).
-* **Run log** (timestamped).
-* **Demo workbook** (queries + visuals).
-* **Security summary** (controls applied, retention).
+* **Ingress checklist** (who/what/when, key custody, TTL)
+* **Validation report** (schema, row counts, null %, type checks)
+* **Run log** (timestamped)
+* **Demo workbook** (queries + visuals)
+* **Security summary** (controls applied, retention)
 
 All items are **exportable** for auditors.
 
@@ -216,7 +212,27 @@ All items are **exportable** for auditors.
 
 ---
 
-## FAQ (Exec-friendly)
+## Repo Structure (suggested)
+
+```
+.
+├─ README.md
+├─ evidence-template/
+│  ├─ ingress-checklist.md
+│  ├─ validation-report.md
+│  └─ run-log.sample.json
+├─ ingress-examples/
+│  ├─ sftp/
+│  ├─ aws-s3/
+│  ├─ azure-blob/
+│  └─ bigquery/
+└─ demo-notebooks/
+   └─ synthea-demo.md
+```
+
+---
+
+## FAQ
 
 * **Can we use real PHI in the pilot?** Not for the initial demo. We begin with Synthea. PHI only after BAA + security sign-off.
 * **How long until a demo?** Typically 2–4 business days after BAA and ingress setup.
@@ -228,5 +244,6 @@ All items are **exportable** for auditors.
 
 MIT (for this documentation). Your data and any access credentials remain yours.
 
----
+```
+
 
