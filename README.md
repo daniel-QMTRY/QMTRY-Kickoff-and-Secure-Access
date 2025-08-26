@@ -1,4 +1,3 @@
-````
 # QMTRY — Blast Off to Secure Healthcare Analytics Adventure! 🚀🔒
 
 > **Epic 30-Minute Quest: Discover, Scope, and Seal the BAA Deal!** We'll geek out on secure data transfers (**SFTP / S3 / Azure Blob / BigQuery**) and rock demos with **Synthea** synthetic data — **zero PHI drama**! 🎉
@@ -16,7 +15,7 @@ Healthcare heroes like you crave a **super-safe, lightning-fast** way to test-dr
 ## Table of Contents (Your Adventure Roadmap)
 
 - [Executive Summary](#executive-summary)  
-- [Onboarding Flow (30-Min Thrill Ride → Demo Glory)](#onboarding-flow-30-min-thrill-ride--demo-glory)  
+- [Onboarding Flow (30-Min Thrill Ride → Demo Glory)](#onboarding-flow-30-min-thrill-ride-demo-glory)  
 - [Security and Compliance Controls (Your Shield and Sword)](#security-and-compliance-controls-your-shield-and-sword)  
 - [Architecture and Data Flow (The Epic Journey Visualized)](#architecture-and-data-flow-the-epic-journey-visualized)  
 - [Timeline (Gantt: Your Time-Travel Chart)](#timeline-gantt-your-time-travel-chart)  
@@ -45,21 +44,21 @@ Get ready for the smoothest onboarding ever! Here's the flow in all its glory:
 
 ```mermaid
 flowchart TD
-    A["Discovery Call (30 min) 🚀"] --> B["Scope and Success Criteria 🎯"]
-    B --> C["BAA Execution ✍️"]
-    C --> D{"Choose Secure Ingress 🔑"}
-    D --> D1["SFTP 📤"]
-    D --> D2["S3 Bucket (AWS) ☁️"]
-    D --> D3["Azure Blob 🟦"]
-    D --> D4["BigQuery External Table 📊"]
-    D1 --> E["Ingress Policy + Keys/Role 🔒"]
+    A["Discovery Call (30 min)"] --> B["Scope and Success Criteria"]
+    B --> C["BAA Execution"]
+    C --> D{"Choose Secure Ingress"}
+    D --> D1["SFTP"]
+    D --> D2["S3 Bucket (AWS)"]
+    D --> D3["Azure Blob"]
+    D --> D4["BigQuery External Table"]
+    D1 --> E["Ingress Policy + Keys/Role"]
     D2 --> E
     D3 --> E
     D4 --> E
-    E --> F["Synthea Demo Dataset (No PHI) 🧪"]
-    F --> G["Validation Checks (Schema, Row Counts, Nulls) ✅"]
-    G --> H["Demo Notebook and Dashboard 📈"]
-    H --> I["Evidence Bundle (audit-ready) 🏆"]
+    E --> F["Synthea Demo Dataset (No PHI)"]
+    F --> G["Validation Checks (Schema, Row Counts, Nulls)"]
+    G --> H["Demo Notebook and Dashboard"]
+    H --> I["Evidence Bundle (audit-ready)"]
 ```
 
 ---
@@ -81,11 +80,11 @@ Behold the high-level blueprint of how your data dances securely into QMTRY's wo
 
 ```mermaid
 flowchart LR
-    A["Your Environment (PHI-Free Synthea Data) 📁"] -->|Secure Transfer (SFTP/S3/Azure/BigQuery)| B["QMTRY Ingress Gateway 🔒"]
-    B --> C["Encryption & Validation Layer ✅"]
-    C --> D["Processing Engine (Schema Checks, Analytics) ⚙️"]
-    D --> E["Demo Outputs (Notebooks, Dashboards) 📊"]
-    E --> F["Evidence Bundle & Audit Logs 🏆"]
+    A["Your Environment (PHI-Free Synthea Data)"] -->|Secure Transfer (SFTP/S3/Azure/BigQuery)| B["QMTRY Ingress Gateway"]
+    B --> C["Encryption & Validation Layer"]
+    C --> D["Processing Engine (Schema Checks, Analytics)"]
+    D --> E["Demo Outputs (Notebooks, Dashboards)"]
+    E --> F["Evidence Bundle & Audit Logs"]
     subgraph "QMTRY Secure Zone"
     B --> C --> D --> E --> F
     end
@@ -101,10 +100,10 @@ Strap in! Here's a snazzy Gantt showing how we zoom from kickoff to demo in days
 
 ```mermaid
 gantt
-    title QMTRY Onboarding Timeline 🚀
+    title QMTRY Onboarding Timeline
     dateFormat  YYYY-MM-DD
     section Discovery
-    30-Min Call & Scope    :a1, 2025-08-27, 1d
+    30-Min Call & Scope    :a1, 2025-08-26, 1d
     BAA Execution          :after a1, 1d
     section Setup
     Choose & Configure Ingress :after a1, 2d
@@ -121,7 +120,7 @@ gantt
 Curious where the magic happens? Check this pie chart breaking down the effort — we're all about efficiency, baby! Minimal sweat for maximum impact! 💪
 
 ```mermaid
-pie title Effort Breakdown by Phase (% of Total) 🍰
+pie title Effort Breakdown by Phase (% of Total)
     "Discovery Call" : 10
     "BAA & Scope" : 15
     "Ingress Setup" : 20
@@ -249,4 +248,3 @@ Export everything for your trophy case! 📁
 ## License (Free to Explore) 📄
 
 MIT for this doc repo. Your data? All yours, forever! 🌍
-````
